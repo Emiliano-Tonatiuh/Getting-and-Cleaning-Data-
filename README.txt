@@ -22,13 +22,13 @@ this is done by
 
 
 Variables = colnames (mergedata)
-Average <- (grepl ("V1", Variables) | grepl ("mean ..", Variables) | grepl ("std ..", Variables))
+Promedio <- (grepl ("V1", Variables) | grepl ("mean ..", Variables) | grepl ("std ..", Variables))
 
 Only those columns containing those words are added to the ordered data.
 
-tidydata <- mergedata [, Average == TRUE]
+tidydata <- mergedata [, Promedio == TRUE]
 
-the averages are requested to be obtained for each activity, filter () is used to select those columns with a unique characteristic.
+the averages are requested to be obtained for each activity, filter () is used to select those rows with a common characteristic.
 
 tidybyActivity <-tbl_df (tidydata)
 Walking <-filter (tidybyActivity, V1 == as.integer (1))
