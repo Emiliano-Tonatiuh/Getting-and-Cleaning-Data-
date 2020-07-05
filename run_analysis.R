@@ -50,9 +50,11 @@ tidydata <- mergedata[ , Promedio == TRUE]
 library(dplyr)
 tidybyActivity <-tbl_df(tidydata)
 Walking<-filter(tidybyActivity,V1==as.integer(1)) 
+write.table(Walking,row.names = TRUE,col.names = TRUE,file ='tidybyWALKING.txt' )
 #1 WALKING #2 WALKING_UPSTAIRS #3 WALKING_DOWNSTAIRS #4 SITTING #5 STANDING #6 LAYING
 WalkingMean<-sapply(Walking,mean)
 
 #if we want to calculate another activity, we ony need to change in filter V1== # of Activity
+write.table(WalkingMean,row.names = TRUE,col.names = TRUE,file ='tidybyWALKING-Mean.txt' )
 
 
