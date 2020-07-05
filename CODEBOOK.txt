@@ -1,0 +1,43 @@
+'X_test / train' contains the observations
+'y_test / train' contains the activity type
+'Features' Contains the names of the columns of the 'X_test / train' files
+
+
+The union of type of activity, observations and names of the columns is obtained in the lines of code.
+Xtrain <- read.table (DireccionTrain, ....)
+features <- read.table (". \\ Getting and Cleaning Data \\ ...)
+colnames (Xtrain) = features [, 2]
+TypeOfActivity <-read.table (DirectionTrainy .....)
+Xtrain <-cbind (TypeOfActivity, Xtrain)
+
+The same should be done for test files, that is in the variable
+
+Xtest <-cbind (TypeOfActivity2, Xtest)
+
+then they must join
+
+mergedata <- rbind (Xtest, Xtrain)
+
+columns with the words average or standard deviation in
+
+
+Average <- (grepl ("V1", Variables) | grepl ("mean ..", Variables) | grepl ("std ..", Variables))
+tidydata = data.frame ()
+tidydata <- mergedata [, Average == TRUE]
+
+and finally it is filtered by activity on the line
+
+Walking <-filter (tidybyActivity, V1 == as.integer (1))
+
+
+V1 is the column of the type of activity, if you want to choose another one, the rule V1 == ..... must be followed.
+
+1 == WALKING
+2 == WALKING_UPSTAIRS
+3 == WALKING_DOWNSTAIRS
+4 == SITTING
+5 == STANDING
+6 == LAYING
+
+and to get the averages
+WalkingMean <-sapply (Walking, mean)
